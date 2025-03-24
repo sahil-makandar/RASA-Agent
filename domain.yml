@@ -122,7 +122,7 @@ responses:
       metadata:
         rephrase: True
   
-  uter_ask_book_tests:
+  utter_ask_book_tests:
     - text: "Would you like to book tests for further evaluation?"
       metadata:
         rephrase: True
