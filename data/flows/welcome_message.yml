@@ -1,0 +1,110 @@
+flows:
+
+  welcome_message:
+    description: Greet the user and introduce the assistant's capabilities.
+    steps:
+      - action: utter_welcome_message
+        next: END
+      
+
+  
+
+  # skin_cancer_check:
+  #   description: Help users assess risk factors for skin cancer.
+  #   steps:
+  #     - collect: skin_image
+  #       description: Request the user to upload an image of the mole or spot.
+  #     - action: utter_image_analysis_disclaimer
+  #     - action: action_analyze_skin_image
+  #     - collect: book_dermatologist
+  #       description: Ask if the user wants to book an appointment with a dermatologist for further evaluation.
+  #       next:
+  #         - if: slots.book_dermatologist = true
+  #           then: 
+  #             - action: action_book_dermatologist
+  #             - collect: dermatologist_name
+  #               description: Request the user to choose a dermatologist from the list.
+  #             - collect: booking_date
+  #               ask_before_filling: true
+  #               description: Request the user to choose a date for the dermatologist appointment.
+  #             - collect: booking_confirmation
+  #               ask_before_filling: true
+  #               description: Confirm the booking details.
+  #             - collect: user_name
+  #               reset_after_flow_ends: false
+  #               description: Request the user's name for the booking.
+  #             - action: utter_booking_complete
+  #               next: END
+          
+  #         - if: slots.book_dermatologist = false
+  #           then: 
+  #             - action: utter_image_analysis_disclaimer
+  #               next: END
+          
+  #         - else:
+  #             - action: utter_welcome_message
+  #               next: END
+
+  # # general_symptom_analysis:
+  # #   description: Analyze user symptoms and recommend tests or actions.
+  # #   steps:
+  # #     - collect: symptoms
+  # #       description: Gather specific symptoms like nausea, bloating, fever, etc.
+  # #     - action: action_general_symptom_analysis
+  # #     - action: action_suggest_tests
+  # #     - collect: book_tests
+  # #       description: Ask if the user wants to book the recommended tests.
+  # #       next:
+  # #         - if: slots.book_tests = true
+  # #           then: 
+  # #             - action: action_find_lab
+  # #             - collect: lab_name
+  # #               description: Request the user to choose a lab for the test.
+  # #             - collect: booking_date
+  # #               ask_before_filling: true
+  # #               description: Request the user to choose a date for the test.
+  # #             - collect: booking_confirmation
+  # #               ask_before_filling: true
+  # #               description: Confirm the booking details.
+  # #             - collect: user_name
+  # #               reset_after_flow_ends: false
+  # #               description: Request the user's name for the booking.
+  # #             - action: utter_booking_complete
+  # #               next: END
+          
+  # #         - if: slots.book_tests = false
+  # #           then: 
+  # #             - action: utter_general_precautions
+  # #               next: END
+          
+  # #         - else:
+  # #             - action: utter_welcome_message
+  # #               next: END
+
+  # # preventive_health_screenings:
+  # #   description: Recommend regular health screenings based on age and gender.
+  # #   steps:
+  # #     - action: utter_preventive_tests_recommendation
+  # #       description: Suggest screenings like blood sugar & cholesterol tests, skin & breast checks, and annual full panel blood tests.
+  # #     - conditional:
+  # #         book_tests:
+  # #           - action: find_lab_test
+  # #             description: Assist in booking recommended tests.
+
+  # # closing_and_followups:
+  # #   description: Provide closing messages and follow-up options after completing flows.
+  # #   steps:
+  # #     - collect: health_reminders
+  # #       description: Ask if the user wants reminders or health tips(value will be either 'send_reminders' or 'dont_send_reminders').
+  # #     - collect: send_reminders
+  # #       description: Send reminders to the user's email or phone.
+  # #       next:
+  # #         - if: slots.send_reminders = "send_reminders"
+  # #           then: 
+  # #             - action: action_send_health_reminders
+  # #               description: Send reminders to the user's email or phone.
+          
+  # #         - if: slots.send_reminders = "dont_send_reminders"
+  # #           then: 
+  # #             - action: utter_goodbye
+

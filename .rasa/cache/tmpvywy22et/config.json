@@ -1,0 +1,28 @@
+{
+  "prompt": null,
+  "prompt_template": null,
+  "user_input": null,
+  "llm": {
+    "id": "my_azure_deployment",
+    "models": [
+      {
+        "provider": "azure",
+        "deployment": "'gpt-4o-mini'",
+        "api_base": "'https://az-openai-botangelos.openai.azure.com/'",
+        "api_version": "'2024-05-01-preview'",
+        "api_key": "${MY_AZURE_API_KEY}",
+        "timeout": 10
+      }
+    ]
+  },
+  "flow_retrieval": {
+    "embeddings": {
+      "provider": "openai",
+      "model": "text-embedding-ada-002"
+    },
+    "num_flows": 20,
+    "turns_to_embed": 1,
+    "should_embed_slots": true,
+    "active": false
+  }
+}

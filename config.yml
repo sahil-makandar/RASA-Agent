@@ -1,0 +1,15 @@
+recipe: default.v1
+language: en
+pipeline:
+- name: CompactLLMCommandGenerator
+  # prompt_template: data/prompts/command-generator.jinja2
+  llm:
+    model_group: azure_llm
+  flow_retrieval:
+    embeddings:
+        model_group: azure_embedding_model
+
+policies:
+- name: FlowPolicy
+#  - name: EnterpriseSearchPolicy
+assistant_id: 20250323-071528-warm-cue
