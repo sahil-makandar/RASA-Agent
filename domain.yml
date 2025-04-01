@@ -1,0 +1,787 @@
+version: "3.1"
+
+slots:
+<<<<<<< HEAD
+  symptoms:
+    type: text
+    mappings:
+    - type: from_llm
+  
+  symptom_severity:
+    type: categorical
+    values:
+      - mild
+      - moderate
+      - severe
+    mappings:
+    - type: from_llm
+  
+  check_symptoms:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: from_llm
+  
+  appointment_recommended:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: controlled
+  
+  booking_date:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  booking_confirmation:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  user_name:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  user_contact_info:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  book_appointment:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  provider_name:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  medical_image:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  consent_to_continue:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  # Optional information slots
+  special_requirements:
+    type: text
+    initial_value: "none"
+    mappings:
+      - type: from_llm
+  
+  use_existing_details:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: from_llm
+  
+  # Specialized slots
+  breast_health_options:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  skin_image:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  mammogram_image:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  # Additional specialized slots
+=======
+  user_intent:
+    type: text
+    mappings:
+      - type: from_llm
+  symptoms:
+    type: text
+    mappings:
+      - type: from_llm
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+  mammogram_place:
+    type: text
+    mappings:
+      - type: from_llm
+<<<<<<< HEAD
+  
+=======
+  booking_date:
+    type: text
+    mappings:
+      - type: from_llm
+  user_name:
+    type: text
+    mappings:
+      - type: from_llm
+  mammogram_image:
+    type: text
+    mappings:
+      - type: from_llm
+  skin_image:
+    type: text
+    mappings:
+      - type: from_llm
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+  book_dermatologist:
+    type: bool
+    mappings:
+      - type: from_llm
+<<<<<<< HEAD
+  
+=======
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+  dermatologist_name:
+    type: text
+    mappings:
+      - type: from_llm
+<<<<<<< HEAD
+  
+=======
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+  book_tests:
+    type: bool
+    mappings:
+      - type: from_llm
+<<<<<<< HEAD
+  
+=======
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+  lab_name:
+    type: text
+    mappings:
+      - type: from_llm
+<<<<<<< HEAD
+  
+=======
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+  health_reminders:
+    type: text
+    mappings:
+      - type: from_llm
+<<<<<<< HEAD
+  
+  pregnancy_clinic_name:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  sti_testing:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  contraception_preferences:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  contraception_followup:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  sti_topic:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  sti_symptoms:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  testing_preference:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  pregnancy_topic:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  appointment_topic:
+    type: text
+    mappings:
+      - type: from_llm
+
+  appointment_type:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  selected_clinic:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  appointment_confirmation:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  test_kit_type:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  test_kit_confirmation:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  user_shipping_info:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  continue_conversation:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  user_location:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  appointment_preference:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  available_clinics:
+    type: list
+    mappings:
+      - type: controlled
+  
+  selected_clinic_id:
+    type: text
+    mappings:
+      - type: controlled
+  
+  clinic_selection:
+    type: text
+    mappings:
+      - type: from_llm
+
+  available_slots:
+    type: list
+    mappings:
+      - type: controlled
+  
+  slot_selection:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  is_slot_available:
+    type: bool
+    mappings:
+      - type: controlled
+  
+  selected_slot_id:
+    type: text
+    mappings:
+      - type: controlled
+  
+  current_date_time:
+    type: text
+    mappings:
+      - type: controlled
+  
+  booking_details:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  health_topic:
+    type: text
+    mappings:
+      - type: controlled
+
+  search_text:
+=======
+  booking_confirmation:
+    type: bool
+    mappings:
+      - type: from_llm
+  breast_health_options:
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+    type: text
+    mappings:
+      - type: from_llm
+
+responses:
+<<<<<<< HEAD
+  utter_greeting_disclaimer:
+    - text: "Hi there! 👋 I'm SeBrealth, your AI Health Assistant. I'm here to provide trusted information about reproductive wellness 💕, maternal care 🤰, wellness screenings 🩺, preventive health 🌱, and general wellbeing. I can also help you book appointments 📅."
+=======
+
+  utter_welcome_message:
+    - text: "Hello! I'm your AI Health Assistant."
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      image: "https://img.freepik.com/free-vector/illustration-breast-cancer-awareness-month_23-2150795312.jpg?t=st=1742718409~exp=1742722009~hmac=44d3e504e5b3783d495a862b29eca14ad0c510d4d34059a159671532569ed21c&w=826"
+      metadata:
+        rephrase: True
+  
+<<<<<<< HEAD
+  utter_ask_symptoms:
+    - text: "Please describe your symptoms in detail so I can provide better guidance."
+  
+  utter_ask_check_symptoms:
+    - text: "I can help analyze your symptoms related to {health_topic}. Would you like to proceed with a symptom check?"
+  
+  utter_ask_user_name:
+    - text: "What name should I use for your booking? 📝"
+      metadata:
+        rephrase: True
+  
+  utter_image_analysis_disclaimer:
+    - text: "⚠️ Note: This AI analysis complements but doesn't replace professional medical advice. Please consult a healthcare provider for proper evaluation."
+      metadata:
+        rephrase: True
+  
+  utter_ask_provider_name:
+    - text: "Please choose your preferred provider from this list! 👩‍⚕️👨‍⚕️"
+      metadata:
+        rephrase: True
+  
+  utter_general_precautions:
+    - text: "⚠️ Remember: This information supports but doesn't replace professional medical advice. Always consult a healthcare provider!"
+      metadata:
+        rephrase: True
+  
+  utter_appointment_help:
+    - text: "Need help scheduling? 🤔 Let me know exactly what you're looking for!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_breast_health_options:
+    - text: "I can help with self-exams, symptom checks, mammogram bookings or analysis. 💗 What would you like to explore?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_mammogram_place:
+    - text: "Choose a hospital/center for your mammogram from this list! 🏥 All are excellent options."
+      metadata:
+        rephrase: True
+  
+  utter_ask_mammogram_image:
+    - text: "Please share the public URL of your mammogram image for AI analysis. 🔍 I'm ready to help!"
+=======
+  utter_ask_user_intent:
+    - text: "I can help you with breast & skin cancer checks, self-examinations, symptom analysis, and test recommendations. How can I assist you today?"
+      metadata:
+        rephrase: True
+
+  utter_ask_breast_health_options:
+    - text: |
+        "I can help with self-examinations, symptom analysis/check, mammogram bookings or mammogram analysis/check. what would you like to do?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_symptoms:
+    - text: "Please describe your symptoms. For example, 'I have a lump in my breast', 'bloating', 'headache', etc."
+      metadata:
+        rephrase: True
+
+  utter_ask_mammogram_place:
+    - text: "Please choose a hospital/mammogram center to book an appointment from the list."
+      metadata:
+        rephrase: True
+  
+  utter_ask_booking_date:
+    - text: "Please choose a date for the appointment."
+      metadata:
+        rephrase: True
+  
+  utter_ask_booking_confirmation:
+    - text: "Please confirm the booking details."
+      metadata:
+        rephrase: True
+  
+  utter_booking_complete:
+    - text: "Booking complete. Thank you, {user_name}."
+      metadata:
+        rephrase: True
+  
+  utter_ask_user_name:
+    - text: "Please provide your name for the booking."
+      metadata:
+        rephrase: True
+
+  utter_ask_mammogram_image:
+    - text: "Please enter the public url of the mammogram image for AI-powered analysis."
+      metadata:
+        rephrase: True
+
+  utter_image_analysis_disclaimer:
+    - text: "Please note that the AI-powered analysis is not a substitute for professional medical advice. We recommend consulting a doctor/hospital for further evaluation."
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      metadata:
+        rephrase: True
+
+  utter_ask_skin_image:
+<<<<<<< HEAD
+    - text: "Share the public URL of your mole/spot image for skin cancer risk analysis. 📸 I'll check it right away!"
+=======
+    - text: "Please enter the public url of the image of the mole or spot for skin cancer risk analysis."
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      metadata:
+        rephrase: True
+  
+  utter_ask_book_tests:
+<<<<<<< HEAD
+    - text: "Would you like to book tests for further evaluation? 🧪 It's a smart step forward!"
+=======
+    - text: "Would you like to book tests for further evaluation?"
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      metadata:
+        rephrase: True
+  
+  utter_ask_lab_name:
+<<<<<<< HEAD
+    - text: "Choose a lab from this list for your test! 🔬 All are well-equipped."
+=======
+    - text: "Please choose a lab from the list for the test."
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      metadata:
+        rephrase: True
+
+  utter_ask_book_dermatologist:
+<<<<<<< HEAD
+    - text: "Would you like to see a dermatologist? 👨‍⚕️ They're experts at skin evaluation!"
+=======
+    - text: "Would you like to book an appointment with a dermatologist for further evaluation?"
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      metadata:
+        rephrase: True
+
+  utter_ask_dermatologist_name:
+<<<<<<< HEAD
+    - text: "Choose a dermatologist from this list! 👩‍⚕️ All are highly qualified."
+=======
+    - text: "Please choose a dermatologist from the list."
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      metadata:
+        rephrase: True
+  
+  utter_ask_health_reminders:
+<<<<<<< HEAD
+    - text: "Would you like to receive helpful health reminders? 🔔 Stay on top of your wellness!"
+=======
+    - text: "Would you like to receive health reminders?"
+      metadata:
+        rephrase: True
+  
+  utter_general_precautions:
+    - text: "Please note that the AI-powered analysis is not a substitute for professional medical advice. We recommend consulting a doctor/hospital for further evaluation."
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+      metadata:
+        rephrase: True
+    
+  utter_goodbye:
+<<<<<<< HEAD
+    - text: "Thank you for reaching out! 👋 Don't hesitate to return if you need anything else. Take care and stay healthy!"
+      metadata:
+        rephrase: True
+  
+  utter_how_can_i_help:
+    - text: "Great, I'm here and ready to help! 😊 What can I assist you with today?"
+      metadata:
+        rephrase: True
+  
+  utter_disagree_to_consent:
+    - text: "I understand. 👍 Without consent, I can't provide information, but I can help book a professional consultation. Do you have any other questions or would you like me to help you book a medical consultaion🚑?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_consent_to_continue:
+    - text: "Quick check! ✅ I'm not a medical professional and provide educational info only which shouldn't replace professional medical advice 🏥. Happy to proceed with that understanding?"
+      buttons:
+        - title: "Yes, I understand. Continue"
+          payload: "Yes, I understand. Continue"
+        - title: "No, I need professional help."
+          payload: "No, I need professional help."
+      metadata:
+        rephrase: True
+  
+  utter_ask_user_intent:
+    - text: "I can help with family planning, wellness screenings, maternal care, or appointments. 🌟 What interests you most?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_contraception_preferences:
+    - text: "Looking for temporary or long-term contraception? 🤔 Any preferences about hormones? Let's find your perfect match!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_contraception_followup:
+    - text: "Would you like to know about side effects, costs, or where to get your preferred method? 💊 I have all the details!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_sti_topic:
+    - text: "I can explain specific STIs, symptoms, or testing options. 🔍 What would you like to learn about?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_sti_symptoms:
+    - text: "Could you describe your symptoms? 🩺 This helps me provide more relevant information!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_sti_testing:
+    - text: "For proper diagnosis, testing is recommended. 🧪 Would you like to book an appointment at a nearby testing center?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_testing_preference:
+    - text: "Would you prefer in-clinic testing or an at-home test kit? 🏥🏠 Both are effective options!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_pregnancy_topic:
+    - text: "I can help with pregnancy tests, check symptoms, or book medical consultations. 🤰 What would you like to do?"
+      metadata:
+        rephrase: True
+
+  utter_ask_health_topic:
+    - text: "I can help with general health topics like pregnancy tests, check symptoms for breast, skin or intimate health, or book medical or general health consultations. 🌟 What interests you?"
+      metadata:
+        rephrase: True
+
+  utter_ask_appointment_type:
+    - text: "What type of appointment do you need? 📋 Options include wellness screening, family planning, maternal care, or general health consultation."
+      metadata:
+        rephrase: True
+  
+  utter_ask_selected_clinic:
+    - text: "Please select a clinic for your appointment! 🏥 All provide excellent care."
+      metadata:
+        rephrase: True
+  
+  utter_ask_appointment_confirmation:
+    - text: "Here's your appointment summary. ✨ Ready to confirm?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_user_contact_info:
+    - text: "To complete your booking, please share your email address. 📝 Your information is secure!"
+      metadata:
+        rephrase: True
+  
+  utter_invalid_contact_info:
+    - text: "Please provide a valid email address (e.g., example@domain.com)."
+      metadata:
+        rephrase: True
+  
+  utter_invalid_phone_number:
+    - text: "Please provide a valid 10-digit phone number."
+      metadata:
+        rephrase: True
+  
+  utter_ask_test_kit_type:
+    - text: Which health screening kit interests you? 🧪 We offer various wellness and health monitoring options!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_test_kit_confirmation:
+    - text: "Here are your test kit options! 📦 Ready to order one?"
+      metadata:
+        rephrase: True
+  
+  utter_test_kit_confirmation:
+    - text: "Your test kit is ordered! ✅ Expect a confirmation email with tracking info within 24 hours."
+      metadata:
+        rephrase: True
+  
+  utter_test_kit_cancelled:
+    - text: "Test kit order cancelled. 👍 What else can I help with today?"
+      metadata:
+        rephrase: True
+  
+  utter_test_kit_help:
+    - text: "Need help ordering a test kit? 🤔 Let me know what specific information you need!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_user_shipping_info:
+    - text: "To ship your test kit, please provide your name, email, and address. 📬 We'll send it right away!"
+      metadata:
+        rephrase: True
+  
+  utter_additional_resources:
+    - text: "Here are some helpful resources! 📚 Would you like to continue our chat or explore something else?"
+      metadata:
+        rephrase: True
+  
+  utter_ask_continue_conversation:
+    - text: "Anything else I can help with today? 😊 I'm here for all your questions!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_user_location:
+    - text: "To find nearby clinics and services, what's your location? 📍 This helps me give you the best options!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_appointment_preference:
+    - text: "Do you prefer in-person or virtual appointments? 🏥💻 Both options are available!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_pregnancy_clinic_name:
+    - text: "Which pregnancy clinic would you like to visit? 🏥 Let me know your preference!"
+      metadata:
+        rephrase: True
+  
+  utter_booking_cancelled:
+    - text: "No problem! ✅ Your appointment is cancelled. What else can I help with today?"
+      metadata:
+        rephrase: True
+  
+  utter_sti_testing_recommendation:
+    - text: "I recommend scheduling a wellness screening at a nearby clinic. 🧪 An appointment will help evaluate your health concerns!"
+      metadata:
+        rephrase: True
+  
+  utter_dont_book_appointment:
+    - text: "No problem! ✅ I'm here to help. If you need any further information or have any questions, feel free to ask!"
+      metadata:
+        rephrase: True
+  
+  utter_appointment_start:
+    - text: "Great! ✅ I'll guide you through the process to book an appointment."
+      metadata:
+        rephrase: True
+
+  utter_ask_booking_date:
+    - text: "I need to know what date works for you to check available appointments. 📅 Could you please provide a date?"
+      metadata:
+        rephrase: True
+  
+  utter_invalid_past_date:
+    - text: "You can't book an appointment in the past. Please provide a future date."
+      metadata:
+        rephrase: True
+  
+  utter_appointment_success:
+    - text: "Fantastic! 🎉 Your appointment has been successfully booked. I've sent all the details to your contact information. Is there anything else I can help you with today?"
+      metadata:
+        rephrase: True
+  
+  utter_pregnancy_consultation_intro:
+    - text: "I'd be happy to help you schedule a pregnancy consultation! 💖 Let's find the right clinic for your needs."
+      metadata:
+        rephrase: True
+  
+  utter_ask_appointment_topic:
+    - text: "I'd be happy to help you book an appointment! 📅 What type of healthcare service are you looking for today? 🩺"
+      buttons:
+        - title: "General Checkup"
+          payload: "general"
+        - title: "Maternal Care Services"
+          payload: "pregnancy services"
+        - title: "Wellness Screening"
+          payload: "STI testing"
+        - title: "Family Planning"
+          payload: "Contraception Appointment"
+        - title: "Women's Wellness"
+          payload: "women's health"
+      metadata:
+        rephrase: True
+
+  utter_booking_complete:
+    - text: "Booking confirmed! ✨ Thank you, {user_name}. Looking forward to seeing you!"
+      metadata:
+        rephrase: True
+  
+  utter_ask_book_appointment:
+    - text: "Would you like to book an appointment for further evaluation? 🗓️ It's a great next step!"
+      buttons:
+        - title: "Yes, book an appointment"
+          payload: "yes book appointment"
+        - title: "No, I'm good"
+          payload: "no dont book appointment"
+      metadata:
+        rephrase: True
+  
+  utter_booking_start:
+    - text: "Great! ✅ I'll guide you through the process to book an appointment."
+      metadata:
+        rephrase: True
+  
+  utter_human_handoff_response:
+    - text: "I'm sorry, I cannot connect you to a human at the moment. The human handoff is still under development. Please try again later."
+      metadata:
+        rephrase: True
+  
+  # utter_ask_booking_confirmation:
+  #   - text: "Okay {user_name}, I have scheduled your appointment for {booking_date}. Would you like to confirm this booking?"
+  #     metadata:
+  #       rephrase: True
+  
+  # utter_need_booking_date:
+  #   - text: "I need to know what date you'd like to book your appointment. 📅 Could you please provide a date?"
+  #     metadata:
+  #       rephrase: True
+
+actions:
+  - action_find_clinics
+  - action_get_available_slots
+  - action_select_time_slot
+  - action_confirm_appointment
+  - action_provide_pregnancy_info
+  - action_pregnancy_test_info
+  - action_ask_clinic_selection
+  - action_ask_slot_selection
+  - action_handle_booking_confirmation
+  - action_ask_booking_confirmation
+  - action_send_appointment_email
+  - action_ask_further_help
+  - action_analyze_symptoms
+  - action_get_health_information
+=======
+    - text: "Thank you for contacting us. If you need any further assistance then please dont hesitate to ask. Till then Goodbye! Take care."
+      metadata:
+        rephrase: True
+
+  # utter_free_chitchat_response:
+  #   - text: "placeholder"
+  #     metadata:
+  #       rephrase: True
+  #       rephrase_prompt: |
+  #         The following is a conversation with an AI assistant built with Rasa.
+  #         The assistant can help the user transfer money.
+  #         The assistant is helpful, creative, clever, and very friendly.
+  #         The user is making small talk, and the assistant should respond, keeping things light.
+  #         Context / previous conversation with the user:
+  #         {{history}}
+  #         {{current_input}}
+  #         Suggested AI Response:
+
+actions:
+  - action_breast_health_self_exam
+  - action_symptom_analysis
+  - action_symptom_analysis_results
+  - action_mammogram_booking
+  - action_mammogram_image_analysis
+  - action_analyze_skin_image
+  - action_general_symptom_analysis
+  - action_book_dermatologist
+  - action_send_health_reminders
+  - action_suggest_tests
+  - action_find_lab
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90

@@ -1,0 +1,16 @@
+flows:
+  greeting_disclaimer:
+    description: Welcome the user and provide a clear disclaimer that the bot is not a substitute for professional healthcare advice.
+    steps:
+      - action: utter_greeting_disclaimer
+      - collect: consent_to_continue
+        description: Gather user's consent to continue with the conversation after providing the healthcare disclaimer.
+        next:
+        - if: slots.consent_to_continue = true
+          then:
+            - action: utter_how_can_i_help
+              next: END
+        - else:
+            - action: utter_disagree_to_consent
+              next: END
+        

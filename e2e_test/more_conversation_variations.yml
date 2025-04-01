@@ -1,0 +1,132 @@
+test_cases:
+  # Pregnancy consultation variations
+  - test_case: pregnancy_consultation_variation_1
+    steps:
+      - user: I think I might be pregnant
+      - utter: utter_ask_consent_to_continue
+      - user: Yes, I understand
+      - utter: utter_ask_pregnancy_topic
+      - user: I need a consultation
+      - slot_was_set:
+          - pregnancy_topic: consultation
+          - appointment_topic: pregnancy
+      - utter: utter_ask_user_location
+      - user: Chicago
+      - action: action_ask_clinic_selection
+      - user: The second one looks good
+
+  - test_case: pregnancy_consultation_variation_2
+    steps:
+      - user: I believe I may be expecting and need advice
+      - utter: utter_ask_consent_to_continue
+      - user: I agree to continue
+      - utter: utter_ask_pregnancy_topic
+      - user: I would like to speak with a professional
+      - slot_was_set:
+          - pregnancy_topic: consultation
+          - appointment_topic: pregnancy
+      - utter: utter_ask_user_location
+      - user: I'm in Chicago
+      - action: action_ask_clinic_selection
+      - user: I'll select the second clinic
+
+  # STI testing variations
+  - test_case: sti_testing_variation_1
+    steps:
+      - user: I need to get tested for STIs
+      - utter: utter_ask_consent_to_continue
+      - user: Yes, I understand
+      - utter: utter_ask_testing_preference
+      - user: I want to do it at a clinic
+      - slot_was_set:
+          - testing_preference: clinic
+          - appointment_topic: STI testing
+      - utter: utter_ask_user_location
+      - user: New York
+      - action: action_ask_clinic_selection
+      - user: The first option works for me
+
+  - test_case: sti_testing_variation_2
+    steps:
+      - user: I'd like to arrange for STI screening
+      - utter: utter_ask_consent_to_continue
+      - user: I consent to proceed
+      - utter: utter_ask_testing_preference
+      - user: I prefer to visit a healthcare facility
+      - slot_was_set:
+          - testing_preference: clinic
+          - appointment_topic: STI testing
+      - utter: utter_ask_user_location
+      - user: I reside in New York
+      - action: action_ask_clinic_selection
+      - user: I'll go with the first clinic listed
+
+  # Mammogram booking variations
+  - test_case: mammogram_booking_variation_1
+    steps:
+      - user: I need to schedule a mammogram
+      - utter: utter_ask_consent_to_continue
+      - user: Yes, I understand
+      - utter: utter_ask_breast_health_options
+      - user: I want to book a mammogram
+      - slot_was_set:
+          - breast_health_options: book mammogram
+      - utter: utter_ask_mammogram_place
+      - user: City Hospital
+      - utter: utter_ask_booking_date
+      - user: next Tuesday
+      - action: action_ask_slot_selection
+      - user: The morning slot
+
+  - test_case: mammogram_booking_variation_2
+    steps:
+      - user: I'd like to arrange for a breast screening
+      - utter: utter_ask_consent_to_continue
+      - user: I agree to the terms
+      - utter: utter_ask_breast_health_options
+      - user: I need to schedule a mammogram
+      - slot_was_set:
+          - breast_health_options: book mammogram
+      - utter: utter_ask_mammogram_place
+      - user: I prefer City Hospital
+      - utter: utter_ask_booking_date
+      - user: Tuesday of next week
+      - action: action_ask_slot_selection
+      - user: I'd prefer a morning appointment
+
+  # Complete appointment flow variations
+  - test_case: complete_appointment_variation_1
+    steps:
+      - user: I need to see a doctor
+      - utter: utter_ask_appointment_topic
+      - user: women's health
+      - utter: utter_ask_user_location
+      - user: Seattle
+      - action: action_ask_clinic_selection
+      - user: Number 3
+      - action: action_ask_slot_selection
+      - user: The 2pm slot
+      - utter: utter_ask_user_name
+      - user: Jane Smith
+      - utter: utter_ask_user_contact_info
+      - user: 2065551234
+      - action: action_ask_booking_confirmation
+      - user: Yes, that's correct
+
+  - test_case: complete_appointment_variation_2
+    steps:
+      - user: I would like to schedule a medical consultation
+      - utter: utter_ask_appointment_topic
+      - user: regarding women's health concerns
+      - utter: utter_ask_user_location
+      - user: I'm based in Seattle
+      - action: action_ask_clinic_selection
+      - user: I'll select option 3
+      - action: action_ask_slot_selection
+      - user: The afternoon appointment at 2pm
+      - utter: utter_ask_user_name
+      - user: My name is Jane Smith
+      - utter: utter_ask_user_contact_info
+      - user: You can reach me at 2065551234
+      - action: action_ask_booking_confirmation
+      - user: The details are accurate

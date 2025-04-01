@@ -1,0 +1,91 @@
+flows:
+  appointment_booking_flow:
+    description: Help users schedule appointments at healthcare facilities, testing centers or telehealth providers based on appointment_topic.
+    persisted_slots:
+      - user_location
+      - user_name
+      - user_contact_info
+    block_digressions: true
+    steps:
+      - id: start_booking
+        action: utter_booking_start
+        next:
+          - if: slots.appointment_topic != null
+            then: check_location
+          - else:
+              - id: collect_topic
+                collect: appointment_topic
+                description: Collect the healthcare topic (example- 'family planning', 'women's health', 'mental wellness', 'general') for which the user wants to book an appointment.
+                next: check_location
+      
+      - id: check_location
+        collect: user_location
+        description: Collect user's zip code or city or address to find nearby healthcare facilities and testing centers.
+      
+      # - action: action_find_clinics
+      
+      - collect: clinic_selection
+        description: Present available healthcare facilities and testing centers and capture user's selection.
+      
+      - id: ask_booking_date
+        collect: booking_date
+        ask_before_filling: true
+        description: Get the date on which the user wants to book the appointment (YYYY-MM-DD). The current Date is:{current_date_time}.
+        rejections:
+          - if: slots.booking_date < slots.current_date_time
+            utter: utter_invalid_past_date
+        next:
+          - if: slots.booking_date != null
+            then:
+              - noop: true
+                next: slot_selection_step  # Transition to slot_selection_step
+          - else:
+              - noop: true
+                next: ask_booking_date
+      
+      - id: slot_selection_step
+        collect: slot_selection
+        ask_before_filling: true
+        description: Present available time slots and capture user's selection by number.
+      
+        next:
+          - if: slots.is_slot_available == false
+            then:
+              - noop: true
+                next: ask_booking_date
+          - else:
+              - action: action_select_time_slot
+                next: collect_user_name
+      
+      - id: collect_user_name
+        collect: user_name
+        description: Collect user's full name for the appointment.
+      
+      - id: collect_contact_info
+        collect: user_contact_info
+        description: Collect user's email address to complete the appointment booking and send confirmation details.
+        rejections:
+          - if: not slots.user_contact_info matches "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            utter: utter_invalid_contact_info
+      
+      # - action: action_confirm_appointment
+      
+      - collect: booking_confirmation
+        ask_before_filling: true
+        description: Ask the user to confirm the appointment details.
+        next:
+          - if: slots.booking_confirmation == true
+            then:
+              - action: action_handle_booking_confirmation
+                next: send_confirmation_email
+          - else:
+              - action: utter_booking_cancelled
+                next: ask_further_help
+      
+      - id: send_confirmation_email
+        action: action_send_appointment_email
+        next: ask_further_help
+      
+      - id: ask_further_help
+        action: action_ask_further_help
+        next: END

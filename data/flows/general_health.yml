@@ -1,0 +1,95 @@
+<<<<<<< HEAD
+health_info:
+    description: Provide guidance and information for users with various health questions.
+    steps:
+      - id: ask_health_topic
+        collect: health_topic
+        description: Determine what health topic the user wants information about (breast health, contraception, skin cancer, STI, etc).
+        ask_confirm_digressions: true
+      
+      - set_slots:
+        - appointment_topic: ${slots.health_topic}
+      
+      - action: action_trigger_search
+      
+      - id: ask_book_appointment
+        collect: book_appointment
+        ask_before_filling: true
+        description: Ask if user wants to book an appointment for further professional healthcare consultation.
+        next:
+          - if: slots.book_appointment == true
+            then:
+              - noop: true
+                next: link_to_booking
+          - else:
+              - action: utter_dont_book_appointment
+                next: END
+      
+      - id: link_to_booking
+        link: appointment_booking_flow
+=======
+flows:
+  general_symptom_analysis:
+    description: Analyze user-reported symptoms through a structured assessment process, provide preliminary analysis, recommend appropriate diagnostic tests, and facilitate test booking at nearby medical facilities.
+    steps:
+      - collect: symptoms
+        description: Gather detailed information about the user's symptoms including type, duration, severity, frequency, and any factors that worsen or alleviate them (such as nausea, bloating, fever, headaches, fatigue, etc.).
+      - action: action_general_symptom_analysis
+      - action: action_suggest_tests
+      - collect: book_tests
+        description: Ask if the user wants to proceed with booking the recommended diagnostic tests at a nearby medical facility, explaining the importance of these tests for proper diagnosis.
+        next:
+          - if: slots.book_tests = true
+            then: 
+              - action: action_find_lab
+              - collect: lab_name
+                description: Present a list of nearby accredited medical laboratories with their locations, ratings, and available test packages, and request the user to select their preferred facility.
+              - collect: booking_date
+                ask_before_filling: true
+                description: Display available appointment slots for the selected laboratory and ask the user to choose their preferred date and time for the diagnostic tests.
+              - collect: booking_confirmation
+                ask_before_filling: true
+                description: Present a comprehensive summary of the booking details including laboratory name, location, date, time, and recommended tests, and ask the user to confirm the appointment.
+              - collect: user_name
+                reset_after_flow_ends: false
+                description: Request the user's full name as it appears on their identification documents for accurate registration at the medical laboratory.
+              - action: utter_booking_complete
+                next: END
+          
+          - if: slots.book_tests = false
+            then: 
+              - action: utter_general_precautions
+                next: END
+          
+          - else:
+              - action: utter_welcome_message
+                next: END
+
+  # preventive_health_screenings:
+  #   description: Recommend regular health screenings based on age and gender.
+  #   steps:
+  #     - action: utter_preventive_tests_recommendation
+  #       description: Suggest screenings like blood sugar & cholesterol tests, skin & breast checks, and annual full panel blood tests.
+  #     - conditional:
+  #         book_tests:
+  #           - action: find_lab_test
+  #             description: Assist in booking recommended tests.
+
+  # closing_and_followups:
+  #   description: Provide closing messages and follow-up options after completing flows.
+  #   steps:
+  #     - collect: health_reminders
+  #       description: Ask if the user wants reminders or health tips(value will be either 'send_reminders' or 'dont_send_reminders').
+  #     - collect: send_reminders
+  #       description: Send reminders to the user's email or phone.
+  #       next:
+  #         - if: slots.send_reminders = "send_reminders"
+  #           then: 
+  #             - action: action_send_health_reminders
+  #               description: Send reminders to the user's email or phone.
+          
+  #         - if: slots.send_reminders = "dont_send_reminders"
+  #           then: 
+  #             - action: utter_goodbye
+
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90

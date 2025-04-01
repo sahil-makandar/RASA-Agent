@@ -1,0 +1,86 @@
+flows:
+  pregnancy_info:
+    description: Provide guidance and information for users with health questions related to family planning and maternal health.
+    steps:
+      - id: ask_pregnancy_topic
+        collect: pregnancy_topic
+        description: Determine if user wants information on family planning tests, maternal health indicators, medical consultation or other related health questions.
+        ask_confirm_digressions: true
+      
+      # Add symptom analysis for pregnancy-related symptoms
+      - id: check_for_symptoms
+        collect: check_symptoms
+        ask_before_filling: true
+        description: Ask if user wants to analyze any symptoms they're experiencing.
+        next:
+          - if: slots.check_symptoms == true
+            then:
+              - collect: symptoms
+                description: Collect symptoms the user is experiencing.
+                next: analyze_symptoms
+          - else:
+              - set_slots:
+                - appointment_topic: "pregnancy"
+              - action: action_trigger_search
+                next: ask_book_appointment
+      
+      - id: analyze_symptoms
+        action: action_analyze_symptoms
+        next:
+          - if: slots.symptom_severity == "severe"
+            then:
+              - set_slots:
+                - book_appointment: true
+                - appointment_topic: "pregnancy"
+              - noop: true
+                next: link_to_booking
+          - else:
+              - set_slots:
+                - appointment_topic: "pregnancy"
+              - action: action_trigger_search
+                next: ask_book_appointment
+      
+      # Remove this unreachable set_slots step
+      # - set_slots:
+      #   - appointment_topic: "pregnancy"
+      
+      # Remove this unreachable action step
+      # - action: action_trigger_search
+      
+      - id: ask_book_appointment
+        collect: book_appointment
+        ask_before_filling: true
+        description: Ask if user wants to book an appointment for further professional healthcare consultation.
+        next:
+          - if: slots.book_appointment == true
+            then:
+              - noop: true
+                next: link_to_booking
+          - else:
+              - action: utter_dont_book_appointment
+                next: END
+      
+      - id: link_to_booking
+        link: appointment_booking_flow
+  
+  pregnancy_test_info:
+    description: Provide information about home health tests and their reliability for family planning.
+    steps:
+      - action: action_trigger_search
+      
+      - id: ask_book_appointment
+        collect: book_appointment
+        ask_before_filling: true
+        description: Ask if user wants to book an appointment for a further professional healthcare evaluation.
+        next:
+          - if: slots.book_appointment == true
+            then:
+              - set_slots:
+                  - appointment_topic: "pregnancy"
+                next: link_to_booking
+          - else:
+              - action: utter_dont_book_appointment
+                next: END
+      
+      - id: link_to_booking
+        link: appointment_booking_flow

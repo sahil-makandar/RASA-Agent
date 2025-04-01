@@ -1,0 +1,37 @@
+{
+  "prompt_template": "data/prompts/command-generator.jinja2",
+  "user_input": null,
+  "llm": {
+    "id": "azure_llm",
+    "models": [
+      {
+        "provider": "azure",
+        "deployment": "gpt-4o-mini",
+        "api_base": "https://az-openai-botangelos.openai.azure.com/",
+        "api_version": "2024-05-01-preview",
+        "api_key": "${MY_AZURE_API_KEY}",
+        "timeout": 10
+      }
+    ]
+<<<<<<< HEAD
+=======
+  },
+  "flow_retrieval": {
+    "embeddings": {
+      "id": "azure_embedding_model",
+      "models": [
+        {
+          "provider": "azure",
+          "deployment": "text-embedding-ada-002",
+          "api_base": "https://az-openai-botangelos.openai.azure.com/",
+          "api_version": "2024-02-15-preview",
+          "api_key": "${MY_AZURE_API_KEY}"
+        }
+      ]
+    },
+    "num_flows": 20,
+    "turns_to_embed": 1,
+    "should_embed_slots": true
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+  }
+}

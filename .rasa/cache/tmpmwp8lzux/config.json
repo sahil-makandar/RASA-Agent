@@ -1,0 +1,17 @@
+{
+  "prompt_template": null,
+  "user_input": null,
+  "llm": {
+    "id": "azure_llm",
+    "models": [
+      {
+        "provider": "azure",
+        "deployment": "gpt-4o-mini",
+        "api_base": "https://az-openai-botangelos.openai.azure.com/",
+        "api_version": "2024-05-01-preview",
+        "api_key": "${MY_AZURE_API_KEY}",
+        "timeout": 10
+      }
+    ]
+  }
+}

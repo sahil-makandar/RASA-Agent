@@ -1,0 +1,34 @@
+{
+  "priority": 6,
+  "vector_store": {
+    "type": "faiss",
+    "source": "./docs",
+    "threshold": 0.0
+  },
+  "llm": {
+    "id": "azure_llm_35",
+    "models": [
+      {
+        "provider": "azure",
+        "deployment": "gpt-35-turbo",
+        "api_base": "https://az-openai-botangelos.openai.azure.com/",
+        "api_version": "2023-05-15",
+        "api_key": "${MY_AZURE_API_KEY}",
+        "model": "text-embedding-ada-002"
+      }
+    ]
+  },
+  "embeddings": {
+    "id": "azure_embedding_model",
+    "models": [
+      {
+        "provider": "azure",
+        "deployment": "text-embedding-ada-002",
+        "api_base": "https://az-openai-botangelos.openai.azure.com/",
+        "api_version": "2024-02-15-preview",
+        "api_key": "${MY_AZURE_API_KEY}",
+        "model": "text-embedding-ada-002"
+      }
+    ]
+  }
+}

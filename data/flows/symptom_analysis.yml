@@ -1,0 +1,38 @@
+flows:
+  symptom_analysis:
+    description: Analyze user symptoms using open source medical NLP models and provide recommendations.
+    steps:
+      - id: collect_symptoms
+        collect: symptoms
+        description: Collect detailed information about the symptoms the user is experiencing.
+      
+      - action: action_analyze_symptoms
+      
+      - id: ask_health_info
+        collect: health_topic
+        ask_before_filling: true
+        description: Ask if the user wants more information about their health concern.
+        next:
+          - if: slots.health_topic != null
+            then:
+              - action: action_get_health_information
+                next: ask_book_appointment
+          - else:
+              - noop: true
+                next: ask_book_appointment
+      
+      - id: ask_book_appointment
+        collect: book_appointment
+        ask_before_filling: true
+        description: Ask if user wants to book an appointment based on symptom analysis.
+        next:
+          - if: slots.book_appointment == true
+            then:
+              - noop: true
+                next: link_to_booking
+          - else:
+              - action: utter_dont_book_appointment
+                next: END
+      
+      - id: link_to_booking
+        link: appointment_booking_flow

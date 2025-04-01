@@ -1,0 +1,8 @@
+flows:
+
+  greet_user:
+    description: Greet the user and introduce the assistant's capabilities.
+    steps:
+      - action: utter_welcome_message
+        next: END
+      

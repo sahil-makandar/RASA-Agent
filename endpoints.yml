@@ -1,0 +1,111 @@
+# This file contains the different endpoints your bot can use.
+
+# Server where the models are pulled from.
+# https://rasa.com/docs/rasa-pro/production/model-storage#fetching-models-from-a-server
+
+#models:
+#  url: http://my-server.com/models/default_core@latest
+#  wait_time_between_pulls:  10   # [optional](default: 100)
+
+# Server which runs your custom actions.
+# https://rasa.com/docs/rasa-pro/concepts/custom-actions
+
+action_endpoint:
+  actions_module: "actions"
+
+# Tracker store which is used to store the conversations.
+# By default the conversations are stored in memory.
+# https://rasa.com/docs/rasa-pro/production/tracker-stores
+
+#tracker_store:
+#    type: redis
+#    url: <host of the redis instance, e.g. localhost>
+#    port: <port of your redis instance, usually 6379>
+#    db: <number of your database within redis, e.g. 0>
+#    password: <password used for authentication>
+#    use_ssl: <whether or not the communication is encrypted, default false>
+
+#tracker_store:
+#    type: mongod
+#    url: <url to your mongo instance, e.g. mongodb://localhost:27017>
+#    db: <name of the db within your mongo instance, e.g. rasa>
+#    username: <username used for authentication>
+#    password: <password used for authentication>
+
+# Event broker which all conversation events should be streamed to.
+# https://rasa.com/docs/rasa-pro/production/event-brokers
+
+#event_broker:
+#  url: localhost
+#  username: username
+#  password: password
+#  queue: queue
+
+# Allow rephrasing of responses using a Rasa-hosted model
+nlg:
+  type: rephrase
+<<<<<<< HEAD
+  rephrase_all: true
+  llm:
+    model_group: azure_llm
+  
+=======
+  llm:
+    model_group: azure_llm
+
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+# model_groups:
+#   - id: rasa_command_generation_model
+#     models:
+#       - provider: rasa
+#         model: rasa/cmd_gen_codellama_13b_calm_demo
+#         api_base: "https://tutorial-llm.rasa.ai"
+
+model_groups:
+  - id: azure_llm
+    models:
+      - provider: azure
+<<<<<<< HEAD
+        deployment: '${AZURE_DEPLOYMENT_NAME}'
+        api_base: '${AZURE_API_BASE}'
+        api_version: '${AZURE_API_VERSION}'
+=======
+        deployment: 'gpt-4o-mini'
+        api_base: 'https://az-openai-botangelos.openai.azure.com/'
+        api_version: '2024-05-01-preview'
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
+        api_key: '${MY_AZURE_API_KEY}'
+        timeout: 10
+  - id: azure_embedding_model
+    models:
+      - provider: azure
+        deployment: 'text-embedding-ada-002'
+<<<<<<< HEAD
+        api_base: '${AZURE_API_BASE}'
+        api_version: '2024-02-15-preview'
+        api_key: '${MY_AZURE_API_KEY}'
+        model: 'text-embedding-ada-002'
+  - id: azure_llm_35
+    models:
+      - provider: azure
+        deployment: 'gpt-35-turbo'
+        api_base: '${AZURE_API_BASE}'
+        api_version: '2023-05-15'
+        api_key: '${MY_AZURE_API_KEY}'
+        model: 'text-embedding-ada-002'
+  # - id: azure_llm
+  #   models:
+  #     - provider: openai
+  #       model: 'gpt-4o-mini'
+  #       api_key: '${OPENAI_API_KEY}'
+        
+  # - id: azure_embedding_model
+  #   models:
+  #     - provider: openai
+  #       model: 'text-embedding-ada-002'
+  #       api_key: ${OPENAI_API_KEY}
+=======
+        api_base: 'https://az-openai-botangelos.openai.azure.com/'
+        api_version: '2024-02-15-preview'
+        api_key: ${MY_AZURE_API_KEY}
+>>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90

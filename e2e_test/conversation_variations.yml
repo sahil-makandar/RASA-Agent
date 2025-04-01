@@ -1,0 +1,44 @@
+test_cases:
+  # conversation 1 (original conversation)
+  - test_case: appointment_booking_variation_1
+    steps:
+      - user: I'd like to book an appointment
+      - utter: utter_ask_appointment_topic
+      - user: for a general checkup
+      - utter: utter_ask_user_location
+      - user: in Boston
+      - action: action_ask_clinic_selection
+      - user: I'll take the first clinic! looks good
+
+  # conversation 2
+  - test_case: appointment_booking_variation_2
+    steps:
+      - user: I need to schedule an appointment.
+      - utter: utter_ask_appointment_topic
+      - user: The reason is a general checkup.
+      - utter: utter_ask_user_location
+      - user: My location is Boston.
+      - action: action_ask_clinic_selection
+      - user: I'd like to go with the first option; it looks convenient.
+
+  # conversation 3
+  - test_case: appointment_booking_variation_3
+    steps:
+      - user: Could I arrange for a medical consultation?
+      - utter: utter_ask_appointment_topic
+      - user: I'd like to have a general checkup.
+      - utter: utter_ask_user_location
+      - user: I'm located in Boston.
+      - action: action_ask_clinic_selection
+      - user: I'll choose the first clinic; it seems appropriate.
+
+  # conversation 4
+  - test_case: appointment_booking_variation_4
+    steps:
+      - user: I'm interested in scheduling a healthcare visit.
+      - utter: utter_ask_appointment_topic
+      - user: The purpose is a general health assessment.
+      - utter: utter_ask_user_location
+      - user: The location is Boston.
+      - action: action_ask_clinic_selection
+      - user: I'm opting for the first healthcare center; it looks excellent.

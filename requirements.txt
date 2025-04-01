@@ -1,0 +1,22 @@
+
+# Database
+pymongo
+
+# API and HTTP
+requests
+
+# Email
+python-dotenv
+
+# Machine Learning
+transformers
+torch
+tensorflow
+
+# Utilities
+numpy
+pandas
+
+# For symptom analysis with Hugging Face
+sentencepiece
+protobuf
