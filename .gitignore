@@ -191,7 +191,6 @@ __pycache__/
 *$py.class
 .env.*
 !.env.example
-models/
 /database
 =======
 # environment variables

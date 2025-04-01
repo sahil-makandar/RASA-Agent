@@ -25,15 +25,12 @@ flows:
   #   steps:
   #     - action: utter_free_chitchat_response
 
-<<<<<<< HEAD
   # pattern_session_start:
   #   description: Flow for starting the conversation
   #   name: pattern session start
   #   steps:
   #     - action: utter_greet
 
-=======
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   pattern_completed:
     description:  a flow has been completed and there is nothing else to be done
     steps:
