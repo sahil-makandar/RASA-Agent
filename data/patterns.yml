@@ -1,5 +1,4 @@
 flows:
-<<<<<<< HEAD
 
   pattern_human_handoff:
     description: Initiates when the user requests to speak with a human or live agent for assistance.
@@ -20,15 +19,6 @@ flows:
       - action: utter_free_chitchat_response
 
   
-=======
-  # pattern_chitchat:
-  #   description: Conversation repair flow for off-topic interactions that won't disrupt the main conversation. should not respond to greetings or anything else for which there is a flow defined
-  #   name: pattern chitchat
-  #   steps:
-  #     - action: utter_free_chitchat_response
-
-      
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   # pattern_search:
   #   description: Flow for handling knowledge-based questions
   #   name: pattern search

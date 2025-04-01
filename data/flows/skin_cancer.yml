@@ -1,6 +1,5 @@
 flows:
 
-<<<<<<< HEAD
 #   skin_cancer_check:
 #     description: Help users assess risk factors for skin cancer.
 #     steps:
@@ -36,40 +35,3 @@ flows:
       
       - id: link_to_booking
         link: appointment_booking_flow
-=======
-  skin_cancer_check:
-    description: Help users assess risk factors for skin cancer by analyzing uploaded images and providing guidance on next steps, including dermatologist appointments if needed.
-    steps:
-      - collect: skin_image
-        description: Request the user to upload a clear, well-lit image of the concerning mole or skin spot for preliminary analysis.
-      - action: utter_image_analysis_disclaimer
-      - action: action_analyze_skin_image
-      - collect: book_dermatologist
-        description: Ask if the user wants to book an appointment with a dermatologist for professional evaluation based on the preliminary analysis results.
-        next:
-          - if: slots.book_dermatologist = true
-            then: 
-              - action: action_book_dermatologist
-              - collect: dermatologist_name
-                description: Present a list of available dermatologists with their specialties and credentials, and request the user to select their preferred doctor.
-              - collect: booking_date
-                ask_before_filling: true
-                description: Show available appointment dates and times for the selected dermatologist and ask the user to choose their preferred slot.
-              - collect: booking_confirmation
-                ask_before_filling: true
-                description: Present a summary of the booking details including doctor, date, time, and location, and ask the user to confirm the appointment.
-              - collect: user_name
-                reset_after_flow_ends: false
-                description: Request the user's full name as it appears on their ID for the appointment registration.
-              - action: utter_booking_complete
-                next: END
-          
-          - if: slots.book_dermatologist = false
-            then: 
-              - action: utter_image_analysis_disclaimer
-                next: END
-          
-          - else:
-              - action: utter_image_analysis_disclaimer
-                next: END
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90

@@ -1,7 +1,6 @@
 version: "3.1"
 
 slots:
-<<<<<<< HEAD
   symptoms:
     type: text
     mappings:
@@ -98,77 +97,35 @@ slots:
       - type: from_llm
   
   # Additional specialized slots
-=======
-  user_intent:
-    type: text
-    mappings:
-      - type: from_llm
-  symptoms:
-    type: text
-    mappings:
-      - type: from_llm
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   mammogram_place:
     type: text
     mappings:
       - type: from_llm
-<<<<<<< HEAD
   
-=======
-  booking_date:
-    type: text
-    mappings:
-      - type: from_llm
-  user_name:
-    type: text
-    mappings:
-      - type: from_llm
-  mammogram_image:
-    type: text
-    mappings:
-      - type: from_llm
-  skin_image:
-    type: text
-    mappings:
-      - type: from_llm
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   book_dermatologist:
     type: bool
     mappings:
       - type: from_llm
-<<<<<<< HEAD
   
-=======
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   dermatologist_name:
     type: text
     mappings:
       - type: from_llm
-<<<<<<< HEAD
   
-=======
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   book_tests:
     type: bool
     mappings:
       - type: from_llm
-<<<<<<< HEAD
   
-=======
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   lab_name:
     type: text
     mappings:
       - type: from_llm
-<<<<<<< HEAD
   
-=======
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
   health_reminders:
     type: text
     mappings:
       - type: from_llm
-<<<<<<< HEAD
   
   pregnancy_clinic_name:
     type: text
@@ -311,31 +268,17 @@ slots:
       - type: controlled
 
   search_text:
-=======
-  booking_confirmation:
-    type: bool
-    mappings:
-      - type: from_llm
-  breast_health_options:
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
     type: text
     mappings:
       - type: from_llm
 
 responses:
-<<<<<<< HEAD
   utter_greeting_disclaimer:
     - text: "Hi there! 👋 I'm SeBrealth, your AI Health Assistant. I'm here to provide trusted information about reproductive wellness 💕, maternal care 🤰, wellness screenings 🩺, preventive health 🌱, and general wellbeing. I can also help you book appointments 📅."
-=======
-
-  utter_welcome_message:
-    - text: "Hello! I'm your AI Health Assistant."
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       image: "https://img.freepik.com/free-vector/illustration-breast-cancer-awareness-month_23-2150795312.jpg?t=st=1742718409~exp=1742722009~hmac=44d3e504e5b3783d495a862b29eca14ad0c510d4d34059a159671532569ed21c&w=826"
       metadata:
         rephrase: True
   
-<<<<<<< HEAD
   utter_ask_symptoms:
     - text: "Please describe your symptoms in detail so I can provide better guidance."
   
@@ -379,120 +322,40 @@ responses:
   
   utter_ask_mammogram_image:
     - text: "Please share the public URL of your mammogram image for AI analysis. 🔍 I'm ready to help!"
-=======
-  utter_ask_user_intent:
-    - text: "I can help you with breast & skin cancer checks, self-examinations, symptom analysis, and test recommendations. How can I assist you today?"
-      metadata:
-        rephrase: True
-
-  utter_ask_breast_health_options:
-    - text: |
-        "I can help with self-examinations, symptom analysis/check, mammogram bookings or mammogram analysis/check. what would you like to do?"
-      metadata:
-        rephrase: True
-  
-  utter_ask_symptoms:
-    - text: "Please describe your symptoms. For example, 'I have a lump in my breast', 'bloating', 'headache', etc."
-      metadata:
-        rephrase: True
-
-  utter_ask_mammogram_place:
-    - text: "Please choose a hospital/mammogram center to book an appointment from the list."
-      metadata:
-        rephrase: True
-  
-  utter_ask_booking_date:
-    - text: "Please choose a date for the appointment."
-      metadata:
-        rephrase: True
-  
-  utter_ask_booking_confirmation:
-    - text: "Please confirm the booking details."
-      metadata:
-        rephrase: True
-  
-  utter_booking_complete:
-    - text: "Booking complete. Thank you, {user_name}."
-      metadata:
-        rephrase: True
-  
-  utter_ask_user_name:
-    - text: "Please provide your name for the booking."
-      metadata:
-        rephrase: True
-
-  utter_ask_mammogram_image:
-    - text: "Please enter the public url of the mammogram image for AI-powered analysis."
-      metadata:
-        rephrase: True
-
-  utter_image_analysis_disclaimer:
-    - text: "Please note that the AI-powered analysis is not a substitute for professional medical advice. We recommend consulting a doctor/hospital for further evaluation."
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       metadata:
         rephrase: True
 
   utter_ask_skin_image:
-<<<<<<< HEAD
     - text: "Share the public URL of your mole/spot image for skin cancer risk analysis. 📸 I'll check it right away!"
-=======
-    - text: "Please enter the public url of the image of the mole or spot for skin cancer risk analysis."
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       metadata:
         rephrase: True
   
   utter_ask_book_tests:
-<<<<<<< HEAD
     - text: "Would you like to book tests for further evaluation? 🧪 It's a smart step forward!"
-=======
-    - text: "Would you like to book tests for further evaluation?"
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       metadata:
         rephrase: True
   
   utter_ask_lab_name:
-<<<<<<< HEAD
     - text: "Choose a lab from this list for your test! 🔬 All are well-equipped."
-=======
-    - text: "Please choose a lab from the list for the test."
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       metadata:
         rephrase: True
 
   utter_ask_book_dermatologist:
-<<<<<<< HEAD
     - text: "Would you like to see a dermatologist? 👨‍⚕️ They're experts at skin evaluation!"
-=======
-    - text: "Would you like to book an appointment with a dermatologist for further evaluation?"
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       metadata:
         rephrase: True
 
   utter_ask_dermatologist_name:
-<<<<<<< HEAD
     - text: "Choose a dermatologist from this list! 👩‍⚕️ All are highly qualified."
-=======
-    - text: "Please choose a dermatologist from the list."
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       metadata:
         rephrase: True
   
   utter_ask_health_reminders:
-<<<<<<< HEAD
     - text: "Would you like to receive helpful health reminders? 🔔 Stay on top of your wellness!"
-=======
-    - text: "Would you like to receive health reminders?"
-      metadata:
-        rephrase: True
-  
-  utter_general_precautions:
-    - text: "Please note that the AI-powered analysis is not a substitute for professional medical advice. We recommend consulting a doctor/hospital for further evaluation."
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
       metadata:
         rephrase: True
     
   utter_goodbye:
-<<<<<<< HEAD
     - text: "Thank you for reaching out! 👋 Don't hesitate to return if you need anything else. Take care and stay healthy!"
       metadata:
         rephrase: True
@@ -753,35 +616,3 @@ actions:
   - action_ask_further_help
   - action_analyze_symptoms
   - action_get_health_information
-=======
-    - text: "Thank you for contacting us. If you need any further assistance then please dont hesitate to ask. Till then Goodbye! Take care."
-      metadata:
-        rephrase: True
-
-  # utter_free_chitchat_response:
-  #   - text: "placeholder"
-  #     metadata:
-  #       rephrase: True
-  #       rephrase_prompt: |
-  #         The following is a conversation with an AI assistant built with Rasa.
-  #         The assistant can help the user transfer money.
-  #         The assistant is helpful, creative, clever, and very friendly.
-  #         The user is making small talk, and the assistant should respond, keeping things light.
-  #         Context / previous conversation with the user:
-  #         {{history}}
-  #         {{current_input}}
-  #         Suggested AI Response:
-
-actions:
-  - action_breast_health_self_exam
-  - action_symptom_analysis
-  - action_symptom_analysis_results
-  - action_mammogram_booking
-  - action_mammogram_image_analysis
-  - action_analyze_skin_image
-  - action_general_symptom_analysis
-  - action_book_dermatologist
-  - action_send_health_reminders
-  - action_suggest_tests
-  - action_find_lab
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90

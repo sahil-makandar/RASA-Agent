@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 flows:  
   breast_health_info:
     description: Provide information about breast health, screenings, and self-exams.
@@ -27,59 +26,3 @@ flows:
       
       - id: link_to_booking
         link: appointment_booking_flow
-=======
-flows:
-  breast_health:
-    description: Assist users with concerns related to breast health or breast cancer, including self-examination guidance, symptom assessment, mammogram booking, and image analysis.
-    steps:
-      - collect: breast_health_options
-        description: Determine the specific breast health service the user is seeking, such as guidance on self-examination techniques, assessment of concerning symptoms, scheduling a mammogram appointment, or analysis of mammogram images.
-        next: END
-
-  breast_health_self_exam:
-    description: Provide guidance on breast self-examination techniques, while providing a dislaimer that this is not a medical advice and is just for educational purposes and guiding the users to book appointment at a hospital or clinic.
-    steps:
-      - action: action_breast_health_self_exam
-        next: END
-
-  breast_health_symptom_check:
-    description: Assess the user's symptoms related to breast health or breast cancer, providing a dislaimer that this is not a medical advice and is just for educational purposes and guiding the users to book appointment at a hospital or clinic.
-    steps:
-      - collect: symptoms
-        description: Gather detailed information about specific breast-related symptoms the user is experiencing, such as lumps, pain, swelling, discharge, skin changes, or nipple abnormalities, including location, duration, and severity.
-      - action: action_symptom_analysis
-      - action: action_symptom_analysis_results
-        next: END
-
-  breast_health_mammogram_booking:
-    description: Assist the user in scheduling a mammogram appointment for breast health or breast cancer by providing information about available mammogram facilities and healthcare centers.
-    steps:
-      - action: action_mammogram_booking
-      - collect: mammogram_place
-        description: Present available mammogram facilities and healthcare centers to the user and capture their preferred location for the mammogram appointment
-      - collect: booking_date
-        ask_before_filling: true
-        description: Provide available appointment dates and times for the selected facility and capture the user's preferred date and time for their mammogram.
-      - collect: booking_confirmation
-        ask_before_filling: true
-        description: Present a summary of the booking details (facility, date, time) and request confirmation from the user before finalizing the appointment.
-      - collect: user_name
-        reset_after_flow_ends: false
-        description: Collect the user's full name to complete the mammogram appointment booking and for future reference in the system.
-      - action: utter_booking_complete
-        next: END
-
-  breast_health_mammogram_analysis:
-    description: Analyze a user-provided mammogram image for breast cancer, providing a dislaimer that this is not a medical advice and is just for educational purposes and guiding the users to book appointment at a hospital or clinic for further medical analysis.
-    steps:
-      - collect: mammogram_image
-        description: Request the user to upload a mammogram image URL for AI-assisted preliminary analysis, explaining the format requirements and privacy considerations.
-      - action: utter_image_analysis_disclaimer
-      - action: action_mammogram_image_analysis
-        next: END
-
-
-
-
-
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90

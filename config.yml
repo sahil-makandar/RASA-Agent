@@ -1,25 +1,17 @@
 recipe: default.v1
 language: en
 pipeline:
-<<<<<<< HEAD
-
-=======
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
 - name: CompactLLMCommandGenerator
   # prompt_template: data/prompts/command-generator.jinja2
   llm:
     model_group: azure_llm
   flow_retrieval:
-<<<<<<< HEAD
     # active: false
-=======
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
     embeddings:
         model_group: azure_embedding_model
 
 policies:
 - name: FlowPolicy
-<<<<<<< HEAD
 
 - name: EnterpriseSearchPolicy
   llm:
@@ -29,7 +21,4 @@ policies:
 
 
 
-=======
-#  - name: EnterpriseSearchPolicy
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
 assistant_id: 20250323-071528-warm-cue

@@ -44,16 +44,10 @@ action_endpoint:
 # Allow rephrasing of responses using a Rasa-hosted model
 nlg:
   type: rephrase
-<<<<<<< HEAD
   rephrase_all: true
   llm:
     model_group: azure_llm
   
-=======
-  llm:
-    model_group: azure_llm
-
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
 # model_groups:
 #   - id: rasa_command_generation_model
 #     models:
@@ -65,22 +59,15 @@ model_groups:
   - id: azure_llm
     models:
       - provider: azure
-<<<<<<< HEAD
         deployment: '${AZURE_DEPLOYMENT_NAME}'
         api_base: '${AZURE_API_BASE}'
         api_version: '${AZURE_API_VERSION}'
-=======
-        deployment: 'gpt-4o-mini'
-        api_base: 'https://az-openai-botangelos.openai.azure.com/'
-        api_version: '2024-05-01-preview'
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
         api_key: '${MY_AZURE_API_KEY}'
         timeout: 10
   - id: azure_embedding_model
     models:
       - provider: azure
         deployment: 'text-embedding-ada-002'
-<<<<<<< HEAD
         api_base: '${AZURE_API_BASE}'
         api_version: '2024-02-15-preview'
         api_key: '${MY_AZURE_API_KEY}'
@@ -104,8 +91,3 @@ model_groups:
   #     - provider: openai
   #       model: 'text-embedding-ada-002'
   #       api_key: ${OPENAI_API_KEY}
-=======
-        api_base: 'https://az-openai-botangelos.openai.azure.com/'
-        api_version: '2024-02-15-preview'
-        api_key: ${MY_AZURE_API_KEY}
->>>>>>> ebac92eb37056698ea747cb9eee0eb9912557e90
