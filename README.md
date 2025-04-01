@@ -2,7 +2,7 @@
 
 SeBrealth is a sophisticated healthcare conversational AI assistant built with RASA CALM framework, dedicated to breaking down barriers in women's healthcare access. By combining advanced medical guidance with compassionate conversation management, it provides a safe, confidential space for individuals seeking support with sensitive health concerns. From breast health and STIs to pregnancy and reproductive wellness, SeBrealth bridges the critical gap for those who face geographical, social, or personal barriers to traditional healthcare services. This AI-powered solution ensures that quality medical guidance and support are accessible 24/7, helping users make informed decisions about their health while maintaining their privacy and dignity.
 
-🎥 **[Watch Demo Video](https://drive.usercontent.google.com/download?id=1YJy76WKfbOmkTFxImNkIJHO-3zN4BqFv&export=download&authuser=0)**
+🎥 **[Download & Watch Demo Video](https://drive.google.com/uc?id=1Phf70EVeeoG8rO6kGr2Lp_R1BDH823R6&export=download)**
 
 ## 🌟 Core Innovations
 
